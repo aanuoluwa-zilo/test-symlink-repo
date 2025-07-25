@@ -1,0 +1,58 @@
+# Symlink Test Structure
+
+This file describes the expected symlink structure after running the creation scripts.
+
+## Directory Structure
+```
+test-symlink-repo/
+├── README.md
+├── create_symlinks.sh
+├── create_symlinks.bat
+├── validate_symlinks.py
+├── symlink_examples.md
+├── symlink_test_structure.txt
+├── config/
+│   ├── v1.0.0/
+│   │   └── config.json
+│   ├── v2.0.0/
+│   │   └── config.json
+│   ├── current -> v1.0.0/
+│   └── latest -> v2.0.0/
+├── build/
+│   ├── 2024-01-15-10-30-45/
+│   │   └── build.log
+│   ├── 2024-01-16-14-20-30/
+│   │   └── build.log
+│   └── latest -> 2024-01-16-14-20-30/
+├── dist/
+│   ├── release-1.2.3/
+│   │   └── app.exe
+│   ├── release-1.2.4/
+│   │   └── app.exe
+│   └── current -> release-1.2.4/
+├── bin/
+├── lib/
+└── src/
+    └── shared/
+```
+
+## Expected Symlinks
+1. config/current -> config/v1.0.0
+2. config/latest -> config/v2.0.0
+3. build/latest -> build/2024-01-16-14-20-30
+4. dist/current -> dist/release-1.2.4
+
+## Validation Commands
+```bash
+# Check if symlinks exist
+ls -la config/current config/latest build/latest dist/current
+
+# Validate symlinks point to correct targets
+python validate_symlinks.py
+
+# Check symlink targets
+readlink config/current
+readlink config/latest
+readlink build/latest
+readlink dist/current
+```
