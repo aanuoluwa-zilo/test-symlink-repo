@@ -1,0 +1,18 @@
+# Ignore symlink targets that might be created during testing
+config/v1.0.0/
+config/v2.0.0/
+build/2024-01-15-10-30-45/
+build/2024-01-16-14-20-30/
+dist/release-1.2.3/
+dist/release-1.2.4/
+
+# But keep the symlinks themselves
+!config/current
+!config/latest
+!build/latest
+!dist/current
+
+# OS files
+.DS_Store
+Thumbs.db
+*.log
