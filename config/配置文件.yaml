@@ -1,0 +1,8 @@
+app:
+  name: 'Symlink Test App'
+  version: '1.0.0'
+  description: 'Приложение для тестирования символических ссылок'
+
+symlinks:
+  test: true
+  unicode: true
